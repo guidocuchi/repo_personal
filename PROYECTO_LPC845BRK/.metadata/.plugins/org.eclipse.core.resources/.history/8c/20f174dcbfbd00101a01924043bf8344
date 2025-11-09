@@ -1,0 +1,308 @@
+/*
+ * max30102.c adaptado a c++.
+ *
+ *  Created on: 1 nov 2025
+ *      Author: unknown
+ */
+
+#include "Defines.h"
+#include <stdio.h>
+#include <string.h>
+
+
+extern UART0 Uart0;
+uint8_t data[192], CantDatos;
+uint8_t buffer[100];
+uint32_t consolidado[32];
+BeatDetector detectorPulso;
+
+//float		Ir = 0, Red = 0;
+//float 		Ir_Ant = 0, Red_Ant = 0;
+int32_t Ir = 0, Red = 0;
+int32_t Ir_Ant = 0, Red_Ant = 0;
+
+volatile uint8_t g_flagLecturaMAX30102 = 0;
+
+
+void SetFlagLecturaMAX30102( uint8_t valor )
+{
+	g_flagLecturaMAX30102 = valor;
+}
+
+uint8_t GetFlagLecturaMAX30102( void )
+{
+	return g_flagLecturaMAX30102;
+}
+
+void MAX30102( void )
+{
+	static uint8_t estado = 0;
+	uint8_t rd, wr, ov;			//, status1, status2;
+	int32_t samples;
+	//uint32_t red = 0, ir = 0;
+
+	switch( estado )
+	{
+	case 0:
+		//Init
+		if( MAX30102InitialConfig() == 0 )
+		{
+			//SetDemora_IIC(IIC_DELAY_ms);
+			estado = 1;
+		}
+
+		break;
+
+	case 1:
+		//if( !GetDemora_IIC() )
+		if( GetFlagLecturaMAX30102() )
+		{
+			SetFlagLecturaMAX30102(0);
+			wr = MAX30102_Read( MAX30102_FIFO_WR_PTR );
+			ov = MAX30102_Read( MAX30102_FIFO_OV_PTR );
+			rd = MAX30102_Read( MAX30102_FIFO_RD_PTR );
+
+			samples = rd - wr;
+			if( ov >= 0xF )
+			{
+				ov = 0;
+			}
+			if(samples < 0)
+				samples +=MAX30102_SAMPLE_LEN_MAX;
+
+			if( wr == 0xFF )
+				samples = 0;
+
+			// Agregado 9 11
+			uint8_t samplesToRead = (samples == 0) ? 1 : samples;
+
+			// 1. Leer todas las muestras crudas a la vez de la FIFO
+			MAX30102_Read_FIFO (MAX30102_FIFO_DATA, data, samplesToRead);
+
+			//MAX30102_Read_FIFO( MAX30102_FIFO_DATA, data, samples, &red, &ir);
+
+			//Lectura macaca
+			//MAX30102_Read_Sample( MAX30102_FIFO_DATA, data);	//En data queda la muestra de los dos canales
+
+			// iterar y procesar cada muestra individualmente
+			for(uint8_t i = 0; i < samplesToRead; i++)
+			{
+				// reconstruir la muestra individual
+				uint32_t red_sample = (data[(i*MAX30102_BYTES_PER_SAMPLE)]<<16) | (data[(i*MAX30102_BYTES_PER_SAMPLE)+1]<<8) | data[(i*MAX30102_BYTES_PER_SAMPLE)+2];
+				uint32_t ir_sample = (data[(i*MAX30102_BYTES_PER_SAMPLE)+3]<<16) | (data[(i*MAX30102_BYTES_PER_SAMPLE)+4]<<8) | data[(i*MAX30102_BYTES_PER_SAMPLE)+5];
+				red_sample &= 0x00FFFF;
+				ir_sample &= 0x00FFFF;
+				// aplicar mascara (16 bit aunque mi config es 15 bit 0x7fff
+
+
+				Ir = DCRemoval((int32_t)(ir_sample)*100, &Ir_Ant, DC_REMOVER_ALPHA);
+				Red = DCRemoval((int32_t)(red_sample)*100, &Red_Ant, DC_REMOVER_ALPHA);
+
+				// aplicar el filtro DC Removal a la muestra individual
+				 bool beatFound = detectorPulso.addSample(Ir);
+				 uint32_t bpm   = 0;
+				// enviar datos (ahora esto está adentro del bucle)
+				 //se enviará datos por cada muestra procesada
+
+				 int red_entero = (int)(Red/100); // parte entera
+				 int red_dec    = (int)(Red%100); // parte decimal
+				 if(red_dec < 0) red_dec = -red_dec; // valor absoluto
+
+				 int ir_entero = (int)(Ir/100);
+				 int ir_dec 	  = (int)(Ir%100);
+				 if(ir_dec < 0) ir_dec = -ir_dec;
+
+
+				 if(beatFound)
+				{
+					bpm = detectorPulso.getRate();
+					sprintf((char *)buffer, "Red: %d%.02d - Ir: %d%.02d - BPM: %u\n",red_entero,red_dec, ir_entero, ir_dec, (unsigned int)bpm);
+					Uart0.Send(buffer, strlen((char *)buffer));
+				}
+			}
+
+		}
+		break;
+
+	case 2:
+
+		break;
+	case 3:
+
+		break;
+	default:
+		break;
+	}
+}
+
+void MAX30102ResetPointers( void )
+{
+	MAX30102_Write( MAX30102_FIFO_WR_PTR, 0 );
+	MAX30102_Write( MAX30102_FIFO_OV_PTR, 0 );
+	MAX30102_Write( MAX30102_FIFO_RD_PTR, 0 );
+}
+
+uint8_t MAX30102InitialConfig( void )
+{
+	static uint8_t estado = 0;
+
+
+	switch( estado )
+	{
+	case 0:
+		MAX30102_Write( MAX30102_MODE_CONFIG, 0x40);		//Reset
+		SetDemora_IIC(IIC_DELAY_30ms);
+		estado = 1;
+		break;
+
+	case 1:
+		if( !GetDemora_IIC() )
+		{
+
+			//MAX30102_Write( MAX30102_INT_EN_1, 0x80);		//Almost full enable
+			MAX30102_Write( MAX30102_INT_EN_1, 0x00);		//
+			MAX30102_Write( MAX30102_INT_EN_2, 0x00);		//
+			MAX30102ResetPointers( );
+			SetDemora_IIC(IIC_DELAY_ms);
+			estado = 2;
+		}
+		break;
+
+	case 2:
+		if( !GetDemora_IIC() )
+		{
+			MAX30102_Write( MAX30102_MODE_CONFIG, 0x03);		//SpO2 Red and IR
+			SetDemora_IIC(IIC_DELAY_ms);
+			estado = 3;
+		}
+		break;
+
+
+	case 3:
+		if( !GetDemora_IIC() )
+		{
+			MAX30102_Write( MAX30102_SPO2_CONFIG, 0x41);		//ADC resolution 15 bits, 50 samples per second, pulse 69us, fullscale 8192
+			//MAX30102_Write( MAX30102_SPO2_CONFIG, 0x07);		//ADC resolution 18 bits, 100 samples per second, pulse 411us, fullscale 2048
+			//MAX30102_Write( MAX30102_SPO2_CONFIG, 0x0F);		//ADC resolution 18 bits, 400 samples per second, pulse 411us
+			SetDemora_IIC(IIC_DELAY_ms);
+			estado = 4;
+		}
+		break;
+
+	case 4:
+		if( !GetDemora_IIC() )
+			{
+				MAX30102_Write( MAX30102_LED1_PA, MAX30102_LED_PA_10mA);		//
+				SetDemora_IIC(IIC_DELAY_ms);
+				estado = 5;
+			}
+			break;
+
+
+
+	case 5:
+		if( !GetDemora_IIC() )
+		{
+			MAX30102_Write( MAX30102_LED2_PA, MAX30102_LED_PA_10mA);		//
+			SetDemora_IIC(IIC_DELAY_ms);
+			estado = 6;
+		}
+		break;
+
+	case 6:
+		if( !GetDemora_IIC() )
+		{
+			//MAX30102_Write( MAX30102_FIFO_CONFIG, 0xE0);		//32 muestras promedio, rollover on
+			MAX30102_Write( MAX30102_FIFO_CONFIG, 0x00);		//
+			SetDemora_IIC(IIC_DELAY_ms);
+			estado = 7;
+		}
+		break;
+
+	case 7:
+		estado = 0;
+		break;
+
+
+	default:
+		estado = 0;
+		break;
+
+
+	}
+
+	return estado;
+}
+
+void MAX30102_Write( uint8_t reg, uint8_t value )
+{
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS);
+	IIC_Write(reg);
+	IIC_Write(value);
+	IIC_Stop();
+}
+
+uint8_t MAX30102_Read( uint8_t reg )
+{
+	uint8_t value;
+
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS);
+	IIC_Write(reg);
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS | 1);
+	value = IIC_Read(NO_ACK);
+	IIC_Stop();
+	return value;
+}
+
+void MAX30102_Read_Sample( uint8_t reg, uint8_t * buff)
+{
+	uint8_t i;
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS);
+	IIC_Write(reg);
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS | 1);
+	for(i = 0; i < 6; i ++ )	//cada muestra es de 6 bytes
+	{
+		buff[i] = IIC_Read(ACK);
+	}
+
+	IIC_Stop();
+}
+
+
+void MAX30102_Read_FIFO (uint8_t reg, uint8_t *buff, uint8_t samples)
+{
+	uint8_t i;
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS);
+	IIC_Write(reg);
+	IIC_Start();
+	IIC_Write(MAX30102_PHY_ADDRESS | 1);
+
+	if(samples == 0){ // si no hay muestras, lee una de todas formas para mantener el flujo
+		samples = 1;
+	}
+		for (i = 0; i < samples * MAX30102_BYTES_PER_SAMPLE; i++)
+		{
+			buff[i] = IIC_Read(ACK);
+		}
+		IIC_Stop();
+		CantDatos = samples*MAX30102_BYTES_PER_SAMPLE;
+
+}
+
+
+int32_t DCRemoval(int32_t x, int32_t *w, int32_t alpha)
+{
+	int32_t Temporal = x + ((long long)alpha * (*w))/100;
+	int32_t Temporal2 = Temporal - (*w);
+	*w = Temporal;
+	return Temporal2;
+}
+
+
+

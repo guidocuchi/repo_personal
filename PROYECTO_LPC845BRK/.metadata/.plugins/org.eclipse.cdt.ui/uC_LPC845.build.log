@@ -1,11 +1,63 @@
-18:14:14 **** Incremental Build of configuration Debug for project uC_LPC845 ****
+20:43:40 **** Incremental Build of configuration Debug for project uC_LPC845 ****
 make -r -j8 all 
-make[1]: No se hace nada para 'main-build'.
+Building file: ../src/UART_DRIVER/UART0.cpp
+Building file: ../src/TIMER_DRIVER/TIMER.cpp
+Building file: ../src/SYSTICK_DRIVER/SYSTICK.cpp
+Invoking: MCU C++ Compiler
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/UART_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/UART_DRIVER/UART0.d" -MT"src/UART_DRIVER/UART0.o" -MT"src/UART_DRIVER/UART0.d" -o "src/UART_DRIVER/UART0.o" "../src/UART_DRIVER/UART0.cpp"
+Building file: ../src/MAX30102_DRIVER/MAX30102_BeatDetector.cpp
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/TIMER_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/TIMER_DRIVER/TIMER.d" -MT"src/TIMER_DRIVER/TIMER.o" -MT"src/TIMER_DRIVER/TIMER.d" -o "src/TIMER_DRIVER/TIMER.o" "../src/TIMER_DRIVER/TIMER.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/SYSTICK_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/SYSTICK_DRIVER/SYSTICK.d" -MT"src/SYSTICK_DRIVER/SYSTICK.o" -MT"src/SYSTICK_DRIVER/SYSTICK.d" -o "src/SYSTICK_DRIVER/SYSTICK.o" "../src/SYSTICK_DRIVER/SYSTICK.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/MAX30102_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/MAX30102_DRIVER/MAX30102_BeatDetector.d" -MT"src/MAX30102_DRIVER/MAX30102_BeatDetector.o" -MT"src/MAX30102_DRIVER/MAX30102_BeatDetector.d" -o "src/MAX30102_DRIVER/MAX30102_BeatDetector.o" "../src/MAX30102_DRIVER/MAX30102_BeatDetector.cpp"
+Building file: ../src/MAX30102_DRIVER/max30102.cpp
+Building file: ../src/GPIO_DRIVER/Gpio.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/MAX30102_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/MAX30102_DRIVER/max30102.d" -MT"src/MAX30102_DRIVER/max30102.o" -MT"src/MAX30102_DRIVER/max30102.d" -o "src/MAX30102_DRIVER/max30102.o" "../src/MAX30102_DRIVER/max30102.cpp"
+Building file: ../src/GPIOF_DRIVER/GPIOF.cpp
+Building file: ../src/CALLBACK/CALLBACK.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/GPIO_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/GPIO_DRIVER/Gpio.d" -MT"src/GPIO_DRIVER/Gpio.o" -MT"src/GPIO_DRIVER/Gpio.d" -o "src/GPIO_DRIVER/Gpio.o" "../src/GPIO_DRIVER/Gpio.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/GPIOF_DRIVER/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/GPIOF_DRIVER/GPIOF.d" -MT"src/GPIOF_DRIVER/GPIOF.o" -MT"src/GPIOF_DRIVER/GPIOF.d" -o "src/GPIOF_DRIVER/GPIOF.o" "../src/GPIOF_DRIVER/GPIOF.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/CALLBACK/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/CALLBACK/CALLBACK.d" -MT"src/CALLBACK/CALLBACK.o" -MT"src/CALLBACK/CALLBACK.d" -o "src/CALLBACK/CALLBACK.o" "../src/CALLBACK/CALLBACK.cpp"
+Finished building: ../src/GPIO_DRIVER/Gpio.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -DCPP_USE_HEAP -D__LPC84X__ -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/TIMER_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/MAX30102_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/I2C_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIOF_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/UART_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/CALLBACK" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/inc" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/SYSTICK_DRIVER" -I"/home/guido/PROYECTO_LPC845BRK/uC_LPC845/src/GPIO_DRIVER" -Os -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmacro-prefix-map="../src/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/TIMER_DRIVER/TIMER.cpp
+ 
+Finished building: ../src/UART_DRIVER/UART0.cpp
+ 
+Finished building: ../src/GPIOF_DRIVER/GPIOF.cpp
+ 
+Finished building: ../src/SYSTICK_DRIVER/SYSTICK.cpp
+ 
+Finished building: ../src/MAX30102_DRIVER/max30102.cpp
+ 
+Finished building: ../src/CALLBACK/CALLBACK.cpp
+ 
+Finished building: ../src/MAX30102_DRIVER/MAX30102_BeatDetector.cpp
+ 
+Finished building: ../src/main.cpp
+ 
+Building target: uC_LPC845.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -Xlinker -Map="uC_LPC845.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T uC_LPC845_Debug.ld -o "uC_LPC845.axf" ./src/UART_DRIVER/UART0.o  ./src/TIMER_DRIVER/TIMER.o  ./src/SYSTICK_DRIVER/SYSTICK.o  ./src/MAX30102_DRIVER/MAX30102_BeatDetector.o ./src/MAX30102_DRIVER/max30102.o  ./src/I2C_DRIVER/i2c.o  ./src/GPIO_DRIVER/Gpio.o  ./src/GPIOF_DRIVER/GPIOF.o  ./src/CALLBACK/CALLBACK.o  ./src/aeabi_romdiv_patch.o ./src/cr_cpp_config.o ./src/cr_startup_lpc84x.o ./src/crp.o ./src/main.o ./src/mtb.o   
+Memory region         Used Size  Region Size  %age Used
+        MFlash64:       62492 B        64 KB     95.36%
+        RamLoc16:        3232 B        16 KB     19.73%
+Finished building target: uC_LPC845.axf
+ 
 Performing post-build steps
 arm-none-eabi-size "uC_LPC845.axf"; # arm-none-eabi-objcopy -v -O binary "uC_LPC845.axf" "uC_LPC845.bin" ; # checksum -p LPC845 -d "uC_LPC845.bin";
    text	   data	    bss	    dec	    hex	filename
-  60916	   1768	   1464	  64148	   fa94	uC_LPC845.axf
+  60724	   1768	   1464	  63956	   f9d4	uC_LPC845.axf
  
 
-18:14:14 Build Finished. 0 errors, 0 warnings. (took 279ms)
+20:43:42 Build Finished. 0 errors, 0 warnings. (took 2s.642ms)
 

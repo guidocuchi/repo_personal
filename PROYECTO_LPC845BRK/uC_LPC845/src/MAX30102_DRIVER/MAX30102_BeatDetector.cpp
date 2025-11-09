@@ -71,6 +71,7 @@ bool BeatDetector::checkForBeat(int32_t value)
             if (Systick.Get_milis() - tsLastBeat > BEATDETECTOR_INVALID_READOUT_DELAY) {
                 beatPeriod = 0;
                 lastMaxValue = 0;
+                threshold = BEATDETECTOR_MIN_THRESHOLD; // la agregué hoy
             }
 
             decreaseThreshold();
@@ -135,6 +136,8 @@ void BeatDetector::decreaseThreshold()
 
 		threshold = (threshold * BEATDETECTOR_THRESHOLD_DECAY_FACTOR)/100;
 	}
+
+	//threshold = (threshold * BEATDETECTOR_THRESHOLD_DECAY_FACTOR)/100;
 
 	if(threshold < BEATDETECTOR_MIN_THRESHOLD)
 	{

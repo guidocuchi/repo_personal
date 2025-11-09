@@ -31,7 +31,7 @@ void App_SysTick_Callback(void)
         static uint8_t sensor_tick_ms = 0;
         sensor_tick_ms++;
 
-        if (sensor_tick_ms >= 150) 		// Se cumple cada 10ms
+        if (sensor_tick_ms >= 20) 		// Se cumple cada 10ms
         {
             sensor_tick_ms = 0; 		// Resetea el contador
             SetFlagLecturaMAX30102(1); 	// Levanta el flag para el sensor
