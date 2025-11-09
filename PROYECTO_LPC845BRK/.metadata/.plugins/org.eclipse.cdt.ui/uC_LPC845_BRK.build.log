@@ -1,0 +1,53 @@
+08:57:54 **** Build of configuration Debug for project uC_LPC845_BRK ****
+make -r -j8 all 
+Building file: ../src/GPIO_DRIVER/Gpio.cpp
+Building file: ../src/aeabi_romdiv_patch.s
+Building file: ../src/cr_cpp_config.cpp
+Building file: ../src/cr_startup_lpc84x.cpp
+Invoking: MCU C++ Compiler
+Invoking: MCU Assembler
+arm-none-eabi-c++ -D__NEWLIB__ -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\inc" -O0 -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fmerge-constants -fmacro-prefix-map="../src/GPIO_DRIVER/"= -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -fstack-usage -specs=nano.specs -MMD -MP -MF"src/GPIO_DRIVER/Gpio.d" -MT"src/GPIO_DRIVER/Gpio.o" -MT"src/GPIO_DRIVER/Gpio.d" -o "src/GPIO_DRIVER/Gpio.o" "../src/GPIO_DRIVER/Gpio.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-gcc -c -x assembler-with-cpp -D__NEWLIB__ -g3 -gdwarf-4 -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -specs=nano.specs -o "src/aeabi_romdiv_patch.o" "../src/aeabi_romdiv_patch.s"
+Building file: ../src/crp.c
+arm-none-eabi-c++ -D__NEWLIB__ -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\src\GPIO_DRIVER" -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\inc" -O0 -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -fstack-usage -specs=nano.specs -MMD -MP -MF"src/cr_cpp_config.d" -MT"src/cr_cpp_config.o" -MT"src/cr_cpp_config.d" -o "src/cr_cpp_config.o" "../src/cr_cpp_config.cpp"
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\src\GPIO_DRIVER" -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\inc" -O0 -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -fstack-usage -specs=nano.specs -MMD -MP -MF"src/cr_startup_lpc84x.d" -MT"src/cr_startup_lpc84x.o" -MT"src/cr_startup_lpc84x.d" -o "src/cr_startup_lpc84x.o" "../src/cr_startup_lpc84x.cpp"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\src\GPIO_DRIVER" -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\inc" -O0 -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -fstack-usage -specs=nano.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Building file: ../src/mtb.c
+Building file: ../src/uC_LPC845_BRK.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\src\GPIO_DRIVER" -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\inc" -O0 -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -fstack-usage -specs=nano.specs -MMD -MP -MF"src/uC_LPC845_BRK.d" -MT"src/uC_LPC845_BRK.o" -MT"src/uC_LPC845_BRK.d" -o "src/uC_LPC845_BRK.o" "../src/uC_LPC845_BRK.cpp"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\src\GPIO_DRIVER" -I"C:\Users\guido\Desktop\PROYECTO_LPC845BRK\uC_LPC845_BRK\inc" -O0 -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m7 -mthumb -D__NEWLIB__ -fstack-usage -specs=nano.specs -MMD -MP -MF"src/mtb.d" -MT"src/mtb.o" -MT"src/mtb.d" -o "src/mtb.o" "../src/mtb.c"
+Finished building: ../src/aeabi_romdiv_patch.s
+ 
+Finished building: ../src/cr_cpp_config.cpp
+Finished building: ../src/GPIO_DRIVER/Gpio.cpp
+Finished building: ../src/cr_startup_lpc84x.cpp
+Finished building: ../src/crp.c
+Finished building: ../src/uC_LPC845_BRK.cpp
+Finished building: ../src/mtb.c
+ 
+ 
+ 
+ 
+ 
+ 
+Building target: libuC_LPC845_BRK.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -shared -mcpu=cortex-m7 -mthumb -T uC_LPC845_BRK_Debug.ld -o "libuC_LPC845_BRK.axf" ./src/GPIO_DRIVER/Gpio.o  ./src/aeabi_romdiv_patch.o ./src/cr_cpp_config.o ./src/cr_startup_lpc84x.o ./src/crp.o ./src/mtb.o ./src/uC_LPC845_BRK.o   
+C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/ld.exe: C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp\crti.o: in function `_init':
+(.init+0x0): multiple definition of `_init'; C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp/crti.o:(.init+0x0): first defined here
+C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/ld.exe: C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp\crti.o: in function `_fini':
+(.fini+0x0): multiple definition of `_fini'; C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp/crti.o:(.fini+0x0): first defined here
+C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/ld.exe: C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp\crtbegin.o:(.data.__dso_handle+0x0): multiple definition of `__dso_handle'; C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp/crtbegin.o:(.data.__dso_handle+0x0): first defined here
+C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/ld.exe: C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp\crtend.o:(.tm_clone_table+0x0): multiple definition of `__TMC_END__'; C:/nxp/MCUXpressoIDE_24.12.148/ide/plugins/com.nxp.mcuxpresso.tools.win32_24.12.0.202407110909/tools/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m/nofp/crtend.o:(.tm_clone_table+0x0): first defined here
+collect2.exe: error: ld returned 1 exit status
+make[1]: *** [makefile:69: libuC_LPC845_BRK.axf] Error 1
+make: *** [makefile:60: all] Error 2
+"make -r -j8 all" terminated with exit code 2. Build might be incomplete.
+
+08:57:56 Build Failed. 6 errors, 0 warnings. (took 1s.879ms)
+

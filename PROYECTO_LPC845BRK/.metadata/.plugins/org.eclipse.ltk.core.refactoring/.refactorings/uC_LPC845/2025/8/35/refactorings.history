@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;uC_LPC845/src/UART&apos; to &apos;UART_DRIVER&apos;" description="Rename resource &apos;UART&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/UART" name="UART_DRIVER" stamp="1756229400491" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;uC_LPC845/src/TIMER&apos; to &apos;TIMER_DRIVER&apos;" description="Rename resource &apos;TIMER&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/TIMER" name="TIMER_DRIVER" stamp="1756229645683" updateReferences="true"/>
+</session>

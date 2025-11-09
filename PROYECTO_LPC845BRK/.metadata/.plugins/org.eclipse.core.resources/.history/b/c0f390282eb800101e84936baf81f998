@@ -1,0 +1,86 @@
+/*
+ * max30102_beat_detector.h
+ *
+ *  Created on: 2 nov 2025
+ *      Author: guido
+ */
+
+#ifndef MAX30102_DRIVER_MAX30102_BEAT_DETECTOR_H_
+#define MAX30102_DRIVER_MAX30102_BEAT_DETECTOR_H_
+
+#include "Defines.h"
+
+typedef enum{
+	BeatDetector_State_Init,
+	BeatDetector_State_Waiting,
+	BeatDetector_State_Following_Slope,
+	BeatDetector_State_Maybe_Detected,
+	BeatDetector_State_Masking
+} BeatDetectorState_t;
+
+#define BeatDetector_Init_Holdoff					2000	// 1
+#define BeatDetector_Masking_Holdoff				200		// 2
+#define BeatDetector_BPFilter_ALpha					0.6f	// 3
+#define BeatDetector_Min_Threshold					100.0f	// 4
+#define BeatDetector_Max_Threshold					8000.0f // 5
+#define BeatDetector_Step_Resiliency				30.0f   // 6
+#define BeatDetector_Threshold_Falloff_Target		0.3f	// 7
+#define BeatDetector_Threshold_Decay_Factor			0.99f	// 8
+#define BeatDetector_Invalid_Readout_Delay			2000	// 9
+#define BeatDetector_Samples_Period					20		// 10
+
+class BeatDetector{
+	public:
+		BeatDetector();
+		bool addSample(float sample);
+		float getRate();
+		float getCurrentThreshold();
+	private:
+		bool checkForBeat(float value);
+		void decreaseThreshold();
+};
+
+
+/* /// -------------------------------------------- ///
+
+Tiempos de espera:
+	1: BeatDetector_Init_Holdoff    -> Tiempo de espera de inicio. El detector no intentará encontrar
+   	   latidos durante los primeros 2 segundos. Le da tiempo al filtro DCRemoval a estabilizarse y
+   	   obtener una lectura coherente del sensor.
+
+	2: BeatDetector_Masking_Holdoff -> Es el tiempo de cooldown después de detectar un latido. Una
+   	   vez que se encuentra un pico, se ignora la señal durante 200 ms.
+
+	9: BeatDetector_Invalid_Readout_Delay -> Si pasan 2 segundos sin detectar un latido, se resetea el
+	   cálculo del BPM (beatPeriod = 0). Se asume que el usuario sacó el dedo del sensor.
+
+Lógica del umbral:
+	4: BeatDetector_Min_Threshold -> es el valor mínimo al que el umbral puede bajar. Evita que el umbral
+	   baje tanto que empiece a detectar el ruido de fondo (VER CUTECOM PARA DETERMINAR ESTE VALOR Y PONERLO
+	   UN POCO POR ENCIMA).
+
+	5: BeatDetector_Max_Threshold -> es el valor máximo al que el umbral puede subir. Evita los picos de ruido
+	   gigantes (VER CUTECOM PARA DETERMINAR ESTE VALOR POR ENCIMA DE LOS PICOS DE LATIDO NORMALES).
+
+	6: BeatDetector_Step_Resiliency -> Es el antirebote del pico. Para confirmar el latido, la señal debe
+	   caer al menos 30 unnidades por debajo del umbral que alcanzó el pico
+
+	7: BeatDetector_Falloff_Target -> Decaimiento rápido del umbral después del latido. Intenta que el umbral baje
+	   un 30% del valor del útlimo pico detectado para estar listo para el pŕoximo latido.
+
+	8: BeatDetector_Decay_Factor -> Decaimiento lento del umbral. Cuando está buscando el latido, el umbral
+	   se multiplica por 0.99 en cada muestra, bajando un 1% lentamente. Esto permite que el umbral baje a
+	   buscar la señal si esta se vuelve más débil.
+
+Suavizado del BPM:
+	3: BeatDetector_BPFilter_Alpha  -> Es el factor de suavizado para el cálculo del BPM. Es un filtro de media
+	   móvil exponencial (EMA). Se puede bajar el valor para hacerlo mucho más estable pero más lento en reaccionar
+
+Configuración del sensor:
+	10: BeatDetector_Samples_Period	-> Cada cuántos milisegundos llega una nueva muestra, en nuestro caso tenemos cada
+		20 milisegundos
+
+*/ /// -------------------------------------------- ///
+
+
+#endif /* MAX30102_DRIVER_MAX30102_BEAT_DETECTOR_H_ */

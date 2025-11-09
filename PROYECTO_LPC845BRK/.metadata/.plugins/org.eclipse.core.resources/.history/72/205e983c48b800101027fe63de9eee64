@@ -1,0 +1,98 @@
+/*
+ * max30102_beat_detector.h
+ *
+ *  Created on: 2 nov 2025
+ *      Author: Arduino-MAX30102 oximetry / heart rate integrated sensor library
+				Copyright (C) 2016  OXullo Intersecans <x@brainrapers.org>
+ */
+
+#ifndef MAX30102_DRIVER_MAX30102_BEAT_DETECTOR_H_
+#define MAX30102_DRIVER_MAX30102_BEAT_DETECTOR_H_
+
+#include "Defines.h"
+
+typedef enum{
+	BEATDETECTOR_STATE_INIT,
+	BEATDETECTOR_STATE_WAITING,
+	BEATDETECTOR_STATE_FOLLOWING_SLOPE,
+	BEATDETECTOR_STATE_MAYBE_DETECTED,
+	BEATDETECTOR_STATE_MASKING
+} BeatDetectorState_t;
+
+#define BEATDETECTOR_INIT_HOLDOFF					2000	// 1
+#define BEATDETECTOR_MASKING_HOLDOFF				200		// 2
+#define BEATDETECTOR_BPFILTER_ALPHA					30 //0.6f	// 3
+#define BEATDETECTOR_MIN_THRESHOLD					10000//100.0f	// 4
+#define BEATDETECTOR_MAX_THRESHOLD					800000//8000.0f // 5
+#define BEATDETECTOR_STEP_RESILIENCY				3000//30.0f   // 6
+#define BEATDETECTOR_THRESHOLD_FALLOFF_TARGET		50 //0.3f	// 7
+#define BEATDETECTOR_THRESHOLD_DECAY_FACTOR			95//0.99f	// 8
+#define BEATDETECTOR_INVALID_READOUT_DELAY			2000	// 9
+#define BEATDETECTOR_SAMPLES_PERIOD					20		// 10
+
+class BeatDetector{
+	public:
+		BeatDetector();
+		bool addSample(int32_t sample);
+		//float getRate();
+		//float getCurrentThreshold();
+		uint32_t getRate();
+		int32_t getCurrentThreshold();
+	private:
+		bool checkForBeat(int32_t value);
+		void decreaseThreshold();
+
+		BeatDetectorState_t state;
+//		float threshold;
+//		float beatPeriod;
+//		float lastMaxValue;
+		int32_t threshold;
+		uint32_t beatPeriod;
+		int32_t lastMaxValue;
+		int32_t tsLastBeat;
+};
+
+
+/* /// -------------------------------------------- ///
+
+Tiempos de espera:
+	1: BeatDetector_Init_Holdoff    -> Tiempo de espera de inicio. El detector no intentará encontrar
+   	   latidos durante los primeros 2 segundos. Le da tiempo al filtro DCRemoval a estabilizarse y
+   	   obtener una lectura coherente del sensor.
+
+	2: BeatDetector_Masking_Holdoff -> Es el tiempo de cooldown después de detectar un latido. Una
+   	   vez que se encuentra un pico, se ignora la señal durante 200 ms.
+
+	9: BeatDetector_Invalid_Readout_Delay -> Si pasan 2 segundos sin detectar un latido, se resetea el
+	   cálculo del BPM (beatPeriod = 0). Se asume que el usuario sacó el dedo del sensor.
+
+Lógica del umbral:
+	4: BeatDetector_Min_Threshold -> es el valor mínimo al que el umbral puede bajar. Evita que el umbral
+	   baje tanto que empiece a detectar el ruido de fondo (VER CUTECOM PARA DETERMINAR ESTE VALOR Y PONERLO
+	   UN POCO POR ENCIMA).
+
+	5: BeatDetector_Max_Threshold -> es el valor máximo al que el umbral puede subir. Evita los picos de ruido
+	   gigantes (VER CUTECOM PARA DETERMINAR ESTE VALOR POR ENCIMA DE LOS PICOS DE LATIDO NORMALES).
+
+	6: BeatDetector_Step_Resiliency -> Es el antirebote del pico. Para confirmar el latido, la señal debe
+	   caer al menos 30 unnidades por debajo del umbral que alcanzó el pico
+
+	7: BeatDetector_Falloff_Target -> Decaimiento rápido del umbral después del latido. Intenta que el umbral baje
+	   un 30% del valor del útlimo pico detectado para estar listo para el pŕoximo latido.
+
+	8: BeatDetector_Decay_Factor -> Decaimiento lento del umbral. Cuando está buscando el latido, el umbral
+	   se multiplica por 0.99 en cada muestra, bajando un 1% lentamente. Esto permite que el umbral baje a
+	   buscar la señal si esta se vuelve más débil.
+
+Suavizado del BPM:
+	3: BeatDetector_BPFilter_Alpha  -> Es el factor de suavizado para el cálculo del BPM. Es un filtro de media
+	   móvil exponencial (EMA). Se puede bajar el valor para hacerlo mucho más estable pero más lento en reaccionar
+
+Configuración del sensor:
+	10: BeatDetector_Samples_Period	-> Cada cuántos milisegundos llega una nueva muestra, en nuestro caso tenemos cada
+		20 milisegundos
+
+*/ /// -------------------------------------------- ///
+
+
+#endif /* MAX30102_DRIVER_MAX30102_BEAT_DETECTOR_H_ */

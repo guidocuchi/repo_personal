@@ -1,0 +1,166 @@
+20:05:48 **** Incremental Build of configuration Debug for project MAX30102 ****
+make -r -j8 all 
+Building file: ../src/main.c
+Building file: ../UART/uart1.c
+Building file: ../Timers/timers.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Building file: ../Teclado/teclado.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../UART/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"UART/uart1.d" -MT"UART/uart1.o" -MT"UART/uart1.d" -o "UART/uart1.o" "../UART/uart1.c"
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../Timers/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"Timers/timers.d" -MT"Timers/timers.o" -MT"Timers/timers.d" -o "Timers/timers.o" "../Timers/timers.c"
+Invoking: MCU C Compiler
+Building file: ../SCTIMER/sctimer.c
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../Teclado/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"Teclado/teclado.d" -MT"Teclado/teclado.o" -MT"Teclado/teclado.d" -o "Teclado/teclado.o" "../Teclado/teclado.c"
+Building file: ../MAX30102/max30102.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../SCTIMER/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"SCTIMER/sctimer.d" -MT"SCTIMER/sctimer.o" -MT"SCTIMER/sctimer.d" -o "SCTIMER/sctimer.o" "../SCTIMER/sctimer.c"
+Invoking: MCU C Compiler
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../MAX30102/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"MAX30102/max30102.d" -MT"MAX30102/max30102.o" -MT"MAX30102/max30102.d" -o "MAX30102/max30102.o" "../MAX30102/max30102.c"
+Building file: ../LCD/lcd.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../LCD/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"LCD/lcd.d" -MT"LCD/lcd.o" -MT"LCD/lcd.d" -o "LCD/lcd.o" "../LCD/lcd.c"
+                 from /home/guido/Descargas/MAX30102/Teclado/teclado.h:20,
+                 from ../UART/uart1.h:12,
+                 from ../UART/uart1.c:9:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from /home/guido/Descargas/MAX30102/IO/io.h:10,
+                 from ../Timers/timers.c:15:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+Building file: ../IO/io.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__LPC84X__ -D__REDLIB__ -I"/home/guido/Descargas/MAX30102/SCTIMER" -I"/home/guido/Descargas/MAX30102/EXT" -I"/home/guido/Descargas/MAX30102/MAX30102" -I"/home/guido/Descargas/MAX30102/CTIMER" -I"/home/guido/Descargas/MAX30102/Drivers" -I"/home/guido/Descargas/MAX30102/GPIO" -I"/home/guido/Descargas/MAX30102/IO" -I"/home/guido/Descargas/MAX30102/LCD" -I"/home/guido/Descargas/MAX30102/src" -I"/home/guido/Descargas/MAX30102/Teclado" -I"/home/guido/Descargas/MAX30102/Timers" -I"/home/guido/Descargas/MAX30102/UART" -I"/home/guido/Descargas/MAX30102/I2C" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../IO/"= -mcpu=cortex-m0 -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"IO/io.d" -MT"IO/io.o" -MT"IO/io.d" -o "IO/io.o" "../IO/io.c"
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from /home/guido/Descargas/MAX30102/Teclado/teclado.h:20,
+                 from /home/guido/Descargas/MAX30102/UART/uart1.h:12,
+                 from ../MAX30102/max30102.c:3:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from ../Teclado/../Teclado/teclado.h:20,
+                 from ../Teclado/teclado.c:13:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from /home/guido/Descargas/MAX30102/Drivers/dr_systick.h:10,
+                 from /home/guido/Descargas/MAX30102/src/misc.h:15,
+                 from ../src/main.c:11:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from ../SCTIMER/sctimer.h:11,
+                 from ../SCTIMER/sctimer.c:8:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from ../LCD/lcd.h:10,
+                 from ../LCD/lcd.c:7:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+../MAX30102/max30102.c: In function 'MAX30102':
+../MAX30102/max30102.c:18:38: warning: variable 'status2' set but not used [-Wunused-but-set-variable]
+   18 |         uint8_t rd, wr, ov, status1, status2;
+      |                                      ^~~~~~~
+../MAX30102/max30102.c:18:29: warning: variable 'status1' set but not used [-Wunused-but-set-variable]
+   18 |         uint8_t rd, wr, ov, status1, status2;
+      |                             ^~~~~~~
+make[1]: *** [Timers/subdir.mk:20: Timers/timers.o] Error 1
+make[1]: *** Se espera a que terminen otras tareas....
+In file included from /home/guido/Descargas/MAX30102/src/LPC845.h:140,
+                 from ../IO/io.h:10,
+                 from ../IO/io.c:7:
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_DisableIRQ':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:772:5: error: implicit declaration of function '__DSB' [-Wimplicit-function-declaration]
+  772 |     __DSB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:773:5: error: implicit declaration of function '__ISB' [-Wimplicit-function-declaration]
+  773 |     __ISB();
+      |     ^~~~~
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h: In function '__NVIC_SystemReset':
+/home/guido/Descargas/MAX30102/src/core_cm0plus.h:931:5: error: implicit declaration of function '__NOP' [-Wimplicit-function-declaration]
+  931 |     __NOP();
+      |     ^~~~~
+make[1]: *** [src/subdir.mk:40: src/main.o] Error 1
+make[1]: *** [MAX30102/subdir.mk:20: MAX30102/max30102.o] Error 1
+make[1]: *** [SCTIMER/subdir.mk:20: SCTIMER/sctimer.o] Error 1
+make[1]: *** [LCD/subdir.mk:20: LCD/lcd.o] Error 1
+make[1]: *** [Teclado/subdir.mk:20: Teclado/teclado.o] Error 1
+../IO/io.c: In function 'Inicializar_IO':
+../IO/io.c:23:25: warning: variable 'Temporal' set but not used [-Wunused-but-set-variable]
+   23 |         IOCON_config_t  Temporal;
+      |                         ^~~~~~~~
+make[1]: *** [UART/subdir.mk:20: UART/uart1.o] Error 1
+make[1]: *** [IO/subdir.mk:20: IO/io.o] Error 1
+make: *** [makefile:47: all] Error 2
+"make -r -j8 all" terminated with exit code 2. Build might be incomplete.
+
+20:05:48 Build Failed. 34 errors, 3 warnings. (took 686ms)
+

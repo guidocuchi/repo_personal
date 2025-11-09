@@ -1,0 +1,22 @@
+#ifndef Defines_H_
+#define Defines_H_
+
+#include <cr_section_macros.h>
+#include <stdio.h>
+
+#include "tipos.h"
+#include "LPC845.h"
+#include "hardware.h"
+
+#ifdef __cplusplus
+    #include <vector>
+	#include "Gpio.h"
+	#include "SYSTICK.h"
+	#include "CALLBACK.h"
+	#include "TIMER.h"
+	#include "GPIOF.h"
+	#include "UART0.h"
+#endif
+#include "LPC845_I2C_HEADER.h"
+
+#endif /* Defines_H_ */
